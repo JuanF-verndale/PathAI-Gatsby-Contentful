@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { Button } from '../components/Button';
-import { Container } from '../components/Container';
 import { RichText } from '../components/RichText';
-import { media, breakpoints } from '../styles/media';
+import { media } from '../styles/media';
+import { graphql } from 'gatsby';
 
 interface IHomepageMasthead {
   heading: string | null;
@@ -22,34 +22,26 @@ interface IHomepageMasthead {
     height: string;
   }>;
 }
-type imageData = Array<{
-  id: string;
-  url: string;
-  filename: string;
-  width: string;
-  height: string;
-}>;
 
 export const HomepageMastHead: React.FC<IHomepageMasthead> = ({
   heading,
   description,
   ctaButton,
-  images
+  images,
 }) => {
-  const imageD:imageData = images.filter((d) => d.filename === 'line.png' || d.filename === 'dots 1.png')
   return (
     <Wrapper>
       <LeftImage
-        src={imageD[0].filename === 'line.png' ? imageD[0].url : imageD[1].url}
-      />
+        src={images[0].url}
+      /> 
       <InnerContainer>
         <h1>{heading}</h1>
         <Description>{description}</Description>
         <Button>{ctaButton?.title}</Button>
       </InnerContainer>
       <BackgroundImage
-        src={imageD[0].filename === 'dots 1.png' ? imageD[0].url : imageD[1].url}
-      />
+        src={images[1].url}
+      /> 
     </Wrapper>
   );
 };

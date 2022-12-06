@@ -7,6 +7,14 @@ export const fragment = graphql`
     content {
       ... on ContentfulHomepageMasthead {
         id
+        heading
+        ctaButton {
+          title
+          url
+        }
+        description {
+          raw
+        }
       }
       ... on ContentfulTabbedImageCallout {
         id

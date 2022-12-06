@@ -44,29 +44,3 @@ const IndexPage: React.FC<PageProps<IAllQuery>> = ({ data }) => {
 export default IndexPage;
 
 export const Head: HeadFC = () => <title>Home Page</title>;
-
-export const query = graphql`
-  query HomePageQuery {
-    allContentfulHomepageMasthead {
-      nodes {
-        heading
-        ctaButton {
-          title
-          url
-        }
-        description {
-          raw
-        }
-      }
-    }
-    allContentfulAsset {
-      nodes {
-        id
-        url
-        filename
-        width
-        height
-      }
-    }
-  }
-`;

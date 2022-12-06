@@ -36,7 +36,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   const createPage = (node: ContentfulPage) => {
     const {id,template,uri} = node.node;
     let component = path.resolve(`./src/templates/${template}.tsx`);
-    console.log(uri)
+    console.log(id)
     if(uri){
         actions.createPage({
             path:uri,

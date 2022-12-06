@@ -1,29 +1,28 @@
 import * as React from 'react';
 import { graphql, PageRendererProps } from 'gatsby';
 import BaseLayout from '../components/layout/BaseLayout';
+import { HomepageMastHead } from '../modules/HomepageMasthead';
 
 interface IDTemplate {
-    data: Queries.MainPageTemplateQuery;
+  data: Queries.MainPageTemplateQuery;
 }
 
 const MainPageTemplate: React.FC<IDTemplate & PageRendererProps> = ({
-    data: {page},
-    ...props
+  data: { page, lineAsset, dotsAsset },
 }) => {
-    console.log(page)
-    if(!page){
-        return(
-            <>
-                <h1>Error 404! Page not found</h1>
-            </>
-        )
-    }
-    return ( 
-        <BaseLayout>
-            <h1>Hey its Main page</h1>
-        </BaseLayout>
-    )
-}
+  if (!page) {
+    return (
+      <>
+        <h1>Error 404! Page not found</h1>
+      </>
+    );
+  }
+  return (
+    <BaseLayout>
+      <HomepageMastHead {...page.content[0]} images={[lineAsset, dotsAsset]} />
+    </BaseLayout>
+  );
+};
 
 export default MainPageTemplate;
 
@@ -31,6 +30,12 @@ export const query = graphql`
   query MainPageTemplate($id: String!) {
     page: contentfulPages(id: { eq: $id }) {
       ...Page
+    }
+    lineAsset: contentfulAsset(filename: { eq: "line.png" }) {
+      ...Image
+    }
+    dotsAsset: contentfulAsset(filename: { eq: "dots 1.png" }) {
+      ...Image
     }
   }
 `;
