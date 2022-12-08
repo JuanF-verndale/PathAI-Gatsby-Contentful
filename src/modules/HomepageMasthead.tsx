@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Button } from '../components/Button';
 import { RichText } from '../components/RichText';
 import { media } from '../styles/media';
-import { graphql } from 'gatsby';
 
 interface IHomepageMasthead {
   heading: string | null;
@@ -48,13 +47,15 @@ export const HomepageMastHead: React.FC<IHomepageMasthead> = ({
 
 const Wrapper = styled.section`
   margin-block: 20px 33px;
+  margin-inline:auto;
   position: relative;
-  overflow: hidden;
+  max-inline-size:1440px;
+  overflow:hidden;
   ${media.greaterThan('tabletLandscape')`
         margin-block: 35px 100px;
         padding-block-start:164px;
-        height:100vh;
         width:100%;
+        overflow:visible;
     `}
 `;
 
@@ -84,10 +85,10 @@ const BackgroundImage = styled.img`
   z-index: -1;
   height: 511px;
   ${media.greaterThan('tabletLandscape')`
-        width: 100%;
-        height: 100%;
+        width: auto;
+        height: auto;
         top:0;
-        right:0;
+        right:-16%;
     `}
 `;
 

@@ -4,7 +4,7 @@ import BaseLayout from '../components/layout/BaseLayout';
 import { HomepageMastHead } from '../modules/HomepageMasthead';
 
 interface IDTemplate {
-  data: Queries.MainPageTemplateQuery;
+  data: Queries.MainPageTemplate;
 }
 
 const MainPageTemplate: React.FC<IDTemplate & PageRendererProps> = ({

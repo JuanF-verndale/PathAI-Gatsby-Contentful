@@ -33,6 +33,12 @@ const GlobalStyle = createGlobalStyle`
             line-height:120%;
         `}
     }
+    a{
+        font-size: 16px;
+        ${media.greaterThan('tabletLandscape')`
+            font-size:18px;
+        `}
+    }
 `;
 
 export default GlobalStyle;
