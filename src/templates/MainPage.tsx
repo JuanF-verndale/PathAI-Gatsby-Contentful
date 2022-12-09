@@ -8,20 +8,20 @@ interface IDTemplate {
 }
 
 const MainPageTemplate: React.FC<IDTemplate & PageRendererProps> = ({
-  data: { page, lineAsset, dotsAsset },
+    data: { page, lineAsset, dotsAsset },
 }) => {
-  if (!page) {
+    if (!page) {
+        return (
+            <>
+                <h1>Error 404! Page not found</h1>
+            </>
+        );
+    }
     return (
-      <>
-        <h1>Error 404! Page not found</h1>
-      </>
+        <BaseLayout>
+            <HomepageMastHead {...page.content[0]} images={[lineAsset, dotsAsset]} />
+        </BaseLayout>
     );
-  }
-  return (
-    <BaseLayout>
-      <HomepageMastHead {...page.content[0]} images={[lineAsset, dotsAsset]} />
-    </BaseLayout>
-  );
 };
 
 export default MainPageTemplate;
@@ -34,7 +34,7 @@ export const query = graphql`
     lineAsset: contentfulAsset(filename: { eq: "line.png" }) {
       ...Image
     }
-    dotsAsset: contentfulAsset(filename: { eq: "dots 1.png" }) {
+    dotsAsset: contentfulAsset(filename: { eq: "dots.png" }) {
       ...Image
     }
   }

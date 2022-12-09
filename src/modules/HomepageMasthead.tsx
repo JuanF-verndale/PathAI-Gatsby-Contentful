@@ -54,6 +54,8 @@ const Wrapper = styled.section`
   ${media.greaterThan('tabletLandscape')`
         margin-block: 35px 100px;
         padding-block-start:164px;
+        padding-inline-start:120px;
+        margin-inline:0;
         width:100%;
         overflow:visible;
     `}
@@ -64,7 +66,7 @@ const InnerContainer = styled.div`
   margin-inline-start: 40px;
   ${media.greaterThan('tabletLandscape')`
         max-width:568px;
-        margin-inline-start:192px;
+        margin-inline-start:0;
     `}
 `;
 
@@ -73,9 +75,9 @@ const LeftImage = styled.img`
   margin-inline: 12px 0;
   height: calc(100% - 30px);
   ${media.greaterThan('tabletLandscape')`
-        margin-inline-start: 120px;
         margin-block-start:24px;
         max-height: 393px;
+        left: 50px;
     `}
 `;
 const BackgroundImage = styled.img`
@@ -88,7 +90,7 @@ const BackgroundImage = styled.img`
         width: auto;
         height: auto;
         top:0;
-        right:-16%;
+        right:0;
     `}
 `;
 

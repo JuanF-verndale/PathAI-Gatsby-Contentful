@@ -20,6 +20,10 @@ const GlobalStyle = createGlobalStyle`
             font-size:18px;
         `}
     }
+    main{
+        max-inline-size:1440px;
+        margin-inline:auto;
+    }
     h1, h2, h3, h4, h5, h6 {
         font-weight: 500;
         line-height: 120%;
