@@ -2,14 +2,13 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { Button } from '../components/Button';
 import { RichText } from '../components/RichText';
+import { ContentfulRichTextGatsbyReference, RenderRichTextData } from 'gatsby-source-contentful/rich-text';
 import { media } from '../styles/media';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
 interface IHomepageMasthead {
   heading: string | null;
-  description: {
-    raw: string;
-  };
+  description: RenderRichTextData<ContentfulRichTextGatsbyReference>;
   ctaButton: {
     title: string | null;
     url: string | null;

@@ -4,7 +4,7 @@ import { media } from '../styles/media';
 import { theme } from '../styles/theme';
 import { RichText } from '../components/RichText';
 import { CTALink } from '../components/CTALink';
-import {PolygonMask} from '../images/svg';
+import { ContentfulRichTextGatsbyReference, RenderRichTextData } from 'gatsby-source-contentful/rich-text';
 
 interface ITabbedImageCallout {
     tabHeadings: Array<TabHeadings>;
@@ -25,12 +25,8 @@ type TabHeadings = {
         width: string;
         title: string;
     };
-    title: {
-        raw: string;
-    };
-    description: {
-        raw: string;
-    };
+    title: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+    description: RenderRichTextData<ContentfulRichTextGatsbyReference>;
     ctaLink: Array<CTALink>;
 };
 
@@ -53,12 +49,8 @@ type Tab = {
         width: string;
         title: string;
     };
-    title: {
-        raw: string;
-    };
-    description: {
-        raw: string;
-    };
+    title: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+    description:RenderRichTextData<ContentfulRichTextGatsbyReference>;
     ctaLink: Array<CTALink>;
 };
 
