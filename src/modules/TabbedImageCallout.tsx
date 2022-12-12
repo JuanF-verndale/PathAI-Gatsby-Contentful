@@ -146,6 +146,9 @@ export const TabbedImageCallout: React.FC<ITabbedImageCallout> = ({
 const Wrapper = styled.section`
     width:90%;
     margin-inline:auto;
+    ${media.greaterThan('tabletLandscape')`
+        margin-block:100px 0;
+    `}
 `
 
 const TabContainer = styled.div`
@@ -157,15 +160,16 @@ const TabContainer = styled.div`
 `
 
 const TabContent = styled.div`
-  ${media.greaterThan('tabletLandscape')`
+    flex-basis:50%;
+    ${media.greaterThan('tabletLandscape')`
         margin-block-start: 200px;
-        flex-basis:50%;
     `}
 `;
 
 const TabImages = styled.div`
     position: relative;
     left: -6%;
+    flex-shrink: 0;
     ${media.greaterThan('tabletLandscape')`
         width:100%;
         flex-basis: 50%;
