@@ -37,11 +37,39 @@ const GlobalStyle = createGlobalStyle`
             line-height:120%;
         `}
     }
+    h2{
+        font-size:34px;
+        ${media.greaterThan('tabletLandscape')`
+            font-size:44px;
+        `}
+    }
+    h3{
+        font-size:27px;
+        ${media.greaterThan('tabletLandscape')`
+            font-size:36px;
+        `}
+    }
+    h4{
+        font-size:22px;
+        ${media.greaterThan('tabletLandscape')`
+            font-size:24px;
+        `}
+    }
+    h5{
+        font-size:18px;
+        ${media.greaterThan('tabletLandscape')`
+                font-size:21px;
+        `}
+    }
     a{
         font-size: 16px;
+        text-decoration:none;
         ${media.greaterThan('tabletLandscape')`
             font-size:18px;
         `}
+    }
+    button {
+        font-family:${stylesP.fonts.primary};
     }
 `;
 

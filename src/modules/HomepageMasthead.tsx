@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import { Button } from '../components/Button';
 import { RichText } from '../components/RichText';
 import { media } from '../styles/media';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
 interface IHomepageMasthead {
   heading: string | null;
   description: {
-    raw: string | null;
+    raw: string;
   };
   ctaButton: {
     title: string | null;

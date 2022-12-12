@@ -17,7 +17,27 @@ export const fragment = graphql`
         }
       }
       ... on ContentfulTabbedImageCallout {
-        id
+        name
+        tabHeadings {
+          name
+          animatedImage {
+            url
+            height
+            width
+            title
+          }
+          title {
+            raw
+          }
+          description {
+            raw
+          }
+          ctaLink {
+            title
+            url
+            element
+          }
+        }
       }
     }
   }

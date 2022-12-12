@@ -26,6 +26,9 @@ const Link = styled.a`
   font-weight: 500;
   line-height: 28.8px;
   display: flex;
+  align-items:center;
+  font-size:18px;
+  margin-block:20px;
 `;
 
 /* When using styled components i can send props or values like conditionals like down here */

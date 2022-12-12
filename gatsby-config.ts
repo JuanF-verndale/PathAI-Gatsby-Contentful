@@ -14,7 +14,7 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-source-contentful',
       options: {
         accessToken: 'HFdg3jR_wM_ETExobEVlY9YsdvxpCHN34CfIwvKe-WY',
-        spaceId: 'wobjenpnqdms',
+        spaceId: 'wobjenpnqdms'
       },
     },
     'gatsby-plugin-image',

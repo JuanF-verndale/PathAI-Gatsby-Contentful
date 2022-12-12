@@ -16,6 +16,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
+    "@contentful/rich-text-types": "^16.0.2",
     "babel-plugin-styled-components": "^2.0.7",
     "gatsby": "^5.2.0",
     "gatsby-plugin-gatsby-cloud": "^5.2.0",

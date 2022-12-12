@@ -2,13 +2,14 @@ import * as React from 'react';
 import { graphql, PageRendererProps } from 'gatsby';
 import BaseLayout from '../components/layout/BaseLayout';
 import { HomepageMastHead } from '../modules/HomepageMasthead';
+import { TabbedImageCallout } from '../modules/TabbedImageCallout';
 
 interface IDTemplate {
   data: Queries.MainPageTemplate;
 }
 
 const MainPageTemplate: React.FC<IDTemplate & PageRendererProps> = ({
-    data: { page, lineAsset, dotsAsset },
+    data: { page, lineAsset, dotsAsset, tabAsset },
 }) => {
     if (!page) {
         return (
@@ -18,9 +19,13 @@ const MainPageTemplate: React.FC<IDTemplate & PageRendererProps> = ({
         );
     }
     return (
-        <BaseLayout>
-            <HomepageMastHead {...page.content[0]} images={[lineAsset, dotsAsset]} />
-        </BaseLayout>
+      <BaseLayout>
+        <HomepageMastHead
+          {...page.content[0]}
+          images={[lineAsset, dotsAsset]}
+        />
+        <TabbedImageCallout {...page.content[1]} tabBackground={tabAsset} />
+      </BaseLayout>
     );
 };
 
@@ -35,6 +40,9 @@ export const query = graphql`
       ...Image
     }
     dotsAsset: contentfulAsset(filename: { eq: "dots.png" }) {
+      ...Image
+    }
+    tabAsset: contentfulAsset(filename: { eq: "TabBackground.png" }) {
       ...Image
     }
   }
