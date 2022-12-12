@@ -223,15 +223,15 @@ const TabHeaders = styled.div`
 `;
 
 const Header = styled.button`
-    background-color: transparent;
-    font-weight: 500;
-    line-height: 1.2;
-    font-size: 18px;
-    background-color: transparent;
-    border: none;
-    white-space: nowrap;
-    padding-block: 0 20px;
-    color: ${theme.colors.spaceCadet};
+  background-color: transparent;
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+  white-space: nowrap;
+  padding-block: 0 20px;
+  color: ${theme.colors.spaceCadet};
 `;
 
 const Content = styled.div<{isSelected:boolean;}>`

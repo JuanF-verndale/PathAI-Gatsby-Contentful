@@ -17,6 +17,7 @@ export const Button = styled.button`
   border: 0;
   color: ${stylesP.colors.spaceCadet};
   background-color: transparent;
+  transition: color 0.3s ease-in-out;
   ${media.greaterThan('tabletLandscape')`
         font-size:18px;
     `};
@@ -45,5 +46,12 @@ export const Button = styled.button`
     height: calc(100% - 2px);
     border-radius: 4px;
     background-color: ${stylesP.colors.white};
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover {
+    color: ${stylesP.colors.white};
+    &:after {
+      transform: translateX(50%) scaleX(0);
+    }
   }
 `;
