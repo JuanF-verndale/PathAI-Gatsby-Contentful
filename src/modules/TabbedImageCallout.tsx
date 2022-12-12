@@ -4,6 +4,7 @@ import { media } from '../styles/media';
 import { theme } from '../styles/theme';
 import { RichText } from '../components/RichText';
 import { CTALink } from '../components/CTALink';
+import {PolygonMask} from '../images/svg';
 
 interface ITabbedImageCallout {
     tabHeadings: Array<TabHeadings>;
@@ -65,8 +66,6 @@ export const TabbedImageCallout: React.FC<ITabbedImageCallout> = ({
     tabHeadings,
     tabBackground
     }) => {
-    
-    console.log(tabBackground)
 
     const [activeTabIndex, setActiveTabIndex] = useState(0);
     
@@ -93,35 +92,54 @@ export const TabbedImageCallout: React.FC<ITabbedImageCallout> = ({
         setActiveTabIndex(index);
     }
     return (
-    <Wrapper>
+      <Wrapper>
         <TabContainer>
-            <TabContent ref={tabPanelContentRef}>
-                <TabHeaders ref={tabHeadingRef}>
-                    {
-                        tabHeaders.map((h,index) => (
-                        <Header key={index} onClick={()=>handleTab(h.id)} ref={index === activeTabIndex ? activeTabRef : null}>
-                            {h.title}
-                        </Header>))
-                    }
-                </TabHeaders>
-                {tabContent.map((c,index)=>(
-                    <Content key={index} isSelected={index === activeTabIndex}>
-                        <RichText>{c.title}</RichText>
-                        <RichText>{c.description}</RichText>
-                        <LinkContainer>
-                            {c.ctaLink && 
-                                c.ctaLink.map((l,index)=>(
-                                    <CTALink key={index} title={l.title} url={l.url} element={l.element}/>
-                                ))
-                                }
-                        </LinkContainer>
-                    </Content>
-                ))}
-                
-            </TabContent>
-            <TabBackground src={tabBackground.url}/>
+          <TabContent ref={tabPanelContentRef}>
+            <TabHeaders ref={tabHeadingRef}>
+              {tabHeaders.map((h, index) => (
+                <Header
+                  key={index}
+                  onClick={() => handleTab(h.id)}
+                  ref={index === activeTabIndex ? activeTabRef : null}>
+                  {h.title}
+                </Header>
+              ))}
+            </TabHeaders>
+            {tabContent.map((c, index) => (
+              <Content key={index} isSelected={index === activeTabIndex}>
+                <RichText>{c.title}</RichText>
+                <RichText>{c.description}</RichText>
+                <LinkContainer>
+                  {c.ctaLink &&
+                    c.ctaLink.map((l, index) => (
+                      <CTALink
+                        key={index}
+                        title={l.title}
+                        url={l.url}
+                        element={l.element}
+                      />
+                    ))}
+                </LinkContainer>
+              </Content>
+            ))}
+          </TabContent>
+          <TabImages>
+            {tabContent.map((c, index) => (
+              <TabImg key={index} isSelected={index === activeTabIndex}>
+                <img
+                  src={c.animatedImage.url}
+                  width={c.animatedImage.width}
+                  height={c.animatedImage.height}/>
+              </TabImg>
+            ))}
+            <TabBackgroundImage
+              src={tabBackground.url}
+              width={tabBackground.width}
+              height={tabBackground.height}
+            />
+          </TabImages>
         </TabContainer>
-    </Wrapper>
+      </Wrapper>
     );
 };
 
@@ -133,14 +151,61 @@ const Wrapper = styled.section`
 const TabContainer = styled.div`
     display:flex;
     flex-direction:column;
+    ${media.greaterThan('tabletLandscape')`
+        flex-direction:row-reverse;
+    `}
 `
 
 const TabContent = styled.div`
-`
+  ${media.greaterThan('tabletLandscape')`
+        margin-block-start: 200px;
+        flex-basis:50%;
+    `}
+`;
 
-const TabBackground = styled.img`
-    position:relative;
-    left:-6%;
+const TabImages = styled.div`
+    position: relative;
+    left: -6%;
+    ${media.greaterThan('tabletLandscape')`
+        width:100%;
+        flex-basis: 50%;
+        height:100%;
+    `}
+`;
+
+const TabBackgroundImage = styled.img`
+    width:100%;
+    height:51.9%;
+    ${media.greaterThan('tabletLandscape')`
+        width:100%;
+        height:100%;
+    `}
+`;
+
+const TabImg = styled.div<{isSelected:boolean;}>`
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top:-11px;
+    left:13%;
+    img {
+        mask-image: url('/images/polygon-mask.svg');
+        mask-repeat: no-repeat;
+        height: auto;
+        width:100%;
+        aspect-ratio: 1/1;
+    }
+    ${(props) => 
+        props.isSelected ? 
+        css`
+            opacity:1;
+        `
+        :
+        css`
+            display:none;
+            opacity:0;
+        `
+    }
 `;
 
 const TabHeaders = styled.div`
