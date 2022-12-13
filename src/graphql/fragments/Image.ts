@@ -7,5 +7,6 @@ export const fragment = graphql`
     filename
     width
     height
+    title
   }
 `;

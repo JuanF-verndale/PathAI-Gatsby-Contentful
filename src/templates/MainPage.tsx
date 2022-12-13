@@ -10,6 +10,7 @@ interface IDTemplate {
 
 const MainPageTemplate: React.FC<IDTemplate & PageRendererProps> = ({
     data: { page, lineAsset, dotsAsset, tabAsset },
+    ...props
 }) => {
     if (!page) {
         return (

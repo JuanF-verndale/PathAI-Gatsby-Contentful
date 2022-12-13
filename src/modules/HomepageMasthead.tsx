@@ -19,6 +19,7 @@ interface IHomepageMasthead {
     filename: string;
     width: string;
     height: string;
+    title: string;
   }>;
 }
 
@@ -30,17 +31,13 @@ export const HomepageMastHead: React.FC<IHomepageMasthead> = ({
 }) => {
   return (
     <Wrapper>
-      <LeftImage
-        src={images[0].url}
-      /> 
+      <LeftImage src={images[0].url} alt={images[0].title} width={images[0].width} height={images[0].height}/>
       <InnerContainer>
         <h1>{heading}</h1>
         <Description>{description}</Description>
         <Button>{ctaButton?.title}</Button>
       </InnerContainer>
-      <BackgroundImage
-        src={images[1].url}
-      /> 
+      <BackgroundImage src={images[1].url} alt={images[1].title} width={images[1].width} height={images[1].height} />
     </Wrapper>
   );
 };

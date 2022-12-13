@@ -14,6 +14,7 @@ interface ITabbedImageCallout {
         filename: string;
         width: string;
         height: string;
+        title: string;
     };
 }
 
@@ -121,13 +122,16 @@ export const TabbedImageCallout: React.FC<ITabbedImageCallout> = ({
                 <img
                   src={c.animatedImage.url}
                   width={c.animatedImage.width}
-                  height={c.animatedImage.height}/>
+                  height={c.animatedImage.height}
+                  alt={c.animatedImage.title}
+                  />
               </TabImg>
             ))}
             <TabBackgroundImage
               src={tabBackground.url}
               width={tabBackground.width}
               height={tabBackground.height}
+              alt={tabBackground.title}
             />
           </TabImages>
         </TabContainer>
