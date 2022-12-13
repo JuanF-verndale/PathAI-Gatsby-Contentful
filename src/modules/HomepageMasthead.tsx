@@ -4,8 +4,8 @@ import { Button } from '../components/Button';
 import { RichText } from '../components/RichText';
 import { ContentfulRichTextGatsbyReference, RenderRichTextData } from 'gatsby-source-contentful/rich-text';
 import { media } from '../styles/media';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
+// The RenderRichTextData<ContentfulRichTextGatsbyReference> is the type that works for the Render of RichText
 interface IHomepageMasthead {
   heading: string | null;
   description: RenderRichTextData<ContentfulRichTextGatsbyReference>;
@@ -82,7 +82,8 @@ const BackgroundImage = styled.img`
   top: -101px;
   right: -154px;
   z-index: -1;
-  height: 511px;
+  width:100%;
+  height:auto;
   ${media.greaterThan('tabletLandscape')`
         width: auto;
         height: auto;

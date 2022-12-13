@@ -10,6 +10,7 @@ interface IBaseLayout {
 const BaseLayout: React.FC<IBaseLayout> = ({children, seo}) => {
     return(
         <>     
+        {/* In SEO I pull the metadata from graphql for the title and lang */}
             <SEO {...seo}/>
             <GlobalStyle />
             <main>{children}</main>
